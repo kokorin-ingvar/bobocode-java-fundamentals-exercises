@@ -59,8 +59,8 @@ public class CrazyGenerics {
      * @param <T> – source object type
      * @param <R> - converted result type
      */
-    public interface Converter { // todo: introduce type parameters
-        // todo: add convert method
+    public interface Converter<T, R> { // todo: introduce type parameters
+        R convert(T object);
     }
 
     /**
