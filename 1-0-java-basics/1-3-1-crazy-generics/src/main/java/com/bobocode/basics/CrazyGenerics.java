@@ -33,8 +33,8 @@ public class CrazyGenerics {
      * @param <T> – value type
      */
     @Data
-    public static class Sourced { // todo: refactor class to introduce type parameter and make value generic
-        private Object value;
+    public static class Sourced<T> { // todo: refactor class to introduce type parameter and make value generic
+        private T value;
         private String source;
     }
 
@@ -45,11 +45,11 @@ public class CrazyGenerics {
      * @param <T> – actual, min and max type
      */
     @Data
-    public static class Limited {
+    public static class Limited<T extends Number> {
         // todo: refactor class to introduce type param bounded by number and make fields generic numbers
-        private final Object actual;
-        private final Object min;
-        private final Object max;
+        private final T actual;
+        private final T min;
+        private final T max;
     }
 
     /**
@@ -59,8 +59,8 @@ public class CrazyGenerics {
      * @param <T> – source object type
      * @param <R> - converted result type
      */
-    public interface Converter { // todo: introduce type parameters
-        // todo: add convert method
+    public interface Converter<T, R> { // todo: introduce type parameters
+        R convert(T object);
     }
 
     /**
